@@ -20,6 +20,25 @@ const Home = () => {
       })
   }, [])
 
+  const callServer = () => {
+    axios({
+      method: 'post',
+      url: 'http://localhost:4000/games/newGame',
+      data: {
+        name: 'Halo Infinite',
+        platform: 'PC'
+      }
+    })
+    .then((response) => {
+      console.log(response.data)
+      if (response.data.error) {
+      }
+    })
+    .catch(err => {
+      console.log("can not get current user")
+    })
+  }
+
   return (
     <div className="homePage">
       this is the home page
@@ -30,7 +49,9 @@ const Home = () => {
             <li>
               <Link to="/auth">Auth page</Link>
             </li>
-          </ul>
+        
+      </ul>
+      <h1 onClick={callServer}>click here to call</h1>
     </div>
   )
 }
