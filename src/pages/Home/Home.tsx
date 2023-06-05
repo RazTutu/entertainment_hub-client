@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+import { DashboardLayout } from '@/layouts/dashboard-layout';
+
 const Home = () => {
   useEffect(() => {
     // check if user exists or navigate on /login
@@ -57,21 +59,11 @@ const Home = () => {
   };
 
   return (
-    <div className="homePage">
-      this is the home page
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/auth">Auth page</Link>
-        </li>
-      </ul>
-      <h1 onClick={callServer}>
-        click here to test protected route
-      </h1>
-      <h1 onClick={logout}>click here to log out</h1>
-    </div>
+    <DashboardLayout>
+      <div className="homePage">
+        This is the home page
+      </div>
+    </DashboardLayout>
   );
 };
 
