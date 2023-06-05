@@ -24,6 +24,7 @@ const Home = () => {
     axios({
       method: 'post',
       url: 'http://localhost:4000/games/newGame',
+      withCredentials: true,
       data: {
         name: 'Halo Infinite',
         platform: 'PC',
@@ -39,6 +40,22 @@ const Home = () => {
       });
   };
 
+  const logout = () => {
+    axios({
+      method: 'get',
+      url: 'http://localhost:4000/auth/logout',
+      withCredentials: true,
+    })
+      .then((response) => {
+        console.log(response.data);
+        if (response.data.error) {
+        }
+      })
+      .catch((err) => {
+        console.log('can not log out');
+      });
+  };
+
   return (
     <div className="homePage">
       this is the home page
@@ -50,7 +67,10 @@ const Home = () => {
           <Link to="/auth">Auth page</Link>
         </li>
       </ul>
-      <h1 onClick={callServer}>click here to call</h1>
+      <h1 onClick={callServer}>
+        click here to test protected route
+      </h1>
+      <h1 onClick={logout}>click here to log out</h1>
     </div>
   );
 };

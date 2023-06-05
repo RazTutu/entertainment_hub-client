@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function AuthPage() {
   const googleAuth = () => {
@@ -6,6 +8,26 @@ function AuthPage() {
       `http://localhost:4000/auth/google`,
       '_self'
     );
+  };
+
+  const callServer = () => {
+    axios({
+      method: 'post',
+      url: 'http://localhost:4000/games/newGame',
+      data: {
+        name: 'Halo Infinite',
+        platform: 'PC',
+      },
+      withCredentials: true,
+    })
+      .then((response) => {
+        console.log(response.data);
+        if (response.data.error) {
+        }
+      })
+      .catch((err) => {
+        console.log('can not get current user');
+      });
   };
   return (
     <div>
@@ -18,6 +40,7 @@ function AuthPage() {
         />
         <h1>login with google</h1>
       </div>
+      <h1 onClick={callServer}>test server request </h1>
     </div>
   );
 }
