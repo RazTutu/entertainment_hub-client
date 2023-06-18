@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 
+import { colors } from '@/config/colors';
+
 export const SidebarContainer = styled.aside`
-  width: 3rem;
+  width: ${(props) => props.theme.space[10]};
   min-height: 100vh;
-  background-color: red;
+  background-color: ${colors.mirage};
+  border-right: 1px solid ${colors.whiteLowOpacity};
   position: sticky;
 `;
 
