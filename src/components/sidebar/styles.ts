@@ -15,3 +15,14 @@ export const SidebarContent = styled.div`
   top: 0;
   z-index: 1;
 `;
+
+export const TitleSection = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
+export const Title = styled.h4`
+  color: white;
+  padding: ${(props) => props.theme.space[3]} 0;
+`;
