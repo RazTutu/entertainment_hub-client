@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { colors } from '@/config/colors';
@@ -25,4 +26,18 @@ export const TitleSection = styled.div`
 export const Title = styled.h4`
   color: white;
   padding: ${(props) => props.theme.space[3]} 0;
+`;
+
+export const NavigationListContainer = styled.nav``;
+
+export const NavigationList = styled.ul``;
+
+export const NavigationListItem = styled.li``;
+
+export const StyledNavLink = styled(NavLink)`
+  color: white;
+
+  &.active {
+    color: green;
+  }
 `;

@@ -1,13 +1,13 @@
 import { DashboardLayout } from '@/layouts/dashboard-layout';
 
-const Games = () => {
+const Statistics = () => {
   return (
     <DashboardLayout>
       <div className="homePage">
-        This is the games page
+        This is the statistics page
       </div>
     </DashboardLayout>
   );
 };
 
-export default Games;
+export default Statistics;
