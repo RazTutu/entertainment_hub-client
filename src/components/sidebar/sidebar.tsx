@@ -1,6 +1,13 @@
-import { NavLink } from 'react-router-dom';
+import { FaHome } from 'react-icons/fa';
+import { IoLogoGameControllerB } from 'react-icons/io';
+import { RiMovie2Fill } from 'react-icons/ri';
+import { FaBook } from 'react-icons/fa';
+import { AiFillPieChart } from 'react-icons/ai';
 
-import { APP_TITLE } from '@/config/constants';
+import {
+  APP_TITLE,
+  NAVIGATION,
+} from '@/config/constants';
 import {
   NavigationList,
   NavigationListContainer,
@@ -22,26 +29,29 @@ export const Sidebar = ({}) => {
         <NavigationListContainer>
           <NavigationList>
             <NavigationListItem>
-              <StyledNavLink to="/">Home</StyledNavLink>
+              <StyledNavLink to="/">
+                <FaHome /> {NAVIGATION.HOME}
+              </StyledNavLink>
             </NavigationListItem>
             <NavigationListItem>
               <StyledNavLink to="/games">
-                Games
+                <IoLogoGameControllerB />{' '}
+                {NAVIGATION.GAMES}
               </StyledNavLink>
             </NavigationListItem>
             <NavigationListItem>
               <StyledNavLink to="/movies">
-                Movies
+                <RiMovie2Fill /> {NAVIGATION.MOVIES}
               </StyledNavLink>
             </NavigationListItem>
             <NavigationListItem>
               <StyledNavLink to="/books">
-                Books
+                <FaBook /> {NAVIGATION.BOOKS}
               </StyledNavLink>
             </NavigationListItem>
             <NavigationListItem>
               <StyledNavLink to="/statistics">
-                Statistics
+                <AiFillPieChart /> {NAVIGATION.STATISTICS}
               </StyledNavLink>
             </NavigationListItem>
           </NavigationList>

@@ -22,6 +22,6 @@ export const Content = styled.div`
   position: relative;
 `;
 
-export const ChildContent = styled.div`
+export const ChildContent = styled.main`
   flex: 1;
 `;
