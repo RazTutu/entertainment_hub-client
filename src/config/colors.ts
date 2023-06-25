@@ -1,4 +1,5 @@
 export const colors = {
+  white: '#FFFFFF',
   mirage: '#161C23',
   darkGunmetal: '#20262D',
   cinder: '#0D1116',

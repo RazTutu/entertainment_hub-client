@@ -6,6 +6,7 @@ import { colors } from '@/config/colors';
 export const SidebarContainer = styled.aside`
   width: ${(props) => props.theme.space[10]};
   min-height: 100vh;
+  top: 0;
   background-color: ${colors.mirage};
   border-right: 1px solid ${colors.whiteLowOpacity};
   position: sticky;
@@ -32,12 +33,36 @@ export const NavigationListContainer = styled.nav``;
 
 export const NavigationList = styled.ul``;
 
-export const NavigationListItem = styled.li``;
+export const NavigationListItem = styled.li`
+  padding: ${(props) => props.theme.space[1]}
+    ${(props) => props.theme.space[2]};
+`;
 
 export const StyledNavLink = styled(NavLink)`
-  color: white;
+  width: 100%;
+  color: ${colors.regentGrey};
+  font-size: ${(props) => props.theme.space[3]};
+  text-decoration: none;
+  display: flex;
+  padding: ${(props) => props.theme.space[1]} 0;
+  border-radius: ${(props) => props.theme.space[1]};
+  transition: background-color 0.3s ease, color 0.3s ease;
 
   &.active {
-    color: green;
+    background-color: ${colors.darkGunmetal};
+    color: ${colors.white};
   }
+
+  &:hover {
+    background-color: ${colors.darkGunmetal};
+    color: ${colors.white};
+  }
+`;
+
+export const NavLinkText = styled.span`
+  margin-left: ${(props) => props.theme.space[1]};
+`;
+
+export const NavLinkIcon = styled.span`
+  margin-left: ${(props) => props.theme.space[1]};
 `;

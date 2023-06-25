@@ -8,7 +8,10 @@ import {
   APP_TITLE,
   NAVIGATION,
 } from '@/config/constants';
+import { theme } from '@/config/theme';
 import {
+  NavLinkIcon,
+  NavLinkText,
   NavigationList,
   NavigationListContainer,
   NavigationListItem,
@@ -30,28 +33,58 @@ export const Sidebar = ({}) => {
           <NavigationList>
             <NavigationListItem>
               <StyledNavLink to="/">
-                <FaHome /> {NAVIGATION.HOME}
+                <NavLinkIcon>
+                  <FaHome size={theme.iconSize.default} />
+                </NavLinkIcon>
+                <NavLinkText>
+                  {NAVIGATION.HOME}
+                </NavLinkText>
               </StyledNavLink>
             </NavigationListItem>
             <NavigationListItem>
               <StyledNavLink to="/games">
-                <IoLogoGameControllerB />{' '}
-                {NAVIGATION.GAMES}
+                <NavLinkIcon>
+                  <IoLogoGameControllerB
+                    size={theme.iconSize.default}
+                  />
+                </NavLinkIcon>
+                <NavLinkText>
+                  {NAVIGATION.GAMES}
+                </NavLinkText>
               </StyledNavLink>
             </NavigationListItem>
             <NavigationListItem>
               <StyledNavLink to="/movies">
-                <RiMovie2Fill /> {NAVIGATION.MOVIES}
+                <NavLinkIcon>
+                  <RiMovie2Fill
+                    size={theme.iconSize.default}
+                  />
+                </NavLinkIcon>
+                <NavLinkText>
+                  {NAVIGATION.MOVIES}
+                </NavLinkText>
               </StyledNavLink>
             </NavigationListItem>
             <NavigationListItem>
               <StyledNavLink to="/books">
-                <FaBook /> {NAVIGATION.BOOKS}
+                <NavLinkIcon>
+                  <FaBook size={theme.iconSize.default} />
+                </NavLinkIcon>
+                <NavLinkText>
+                  {NAVIGATION.BOOKS}
+                </NavLinkText>
               </StyledNavLink>
             </NavigationListItem>
             <NavigationListItem>
               <StyledNavLink to="/statistics">
-                <AiFillPieChart /> {NAVIGATION.STATISTICS}
+                <NavLinkIcon>
+                  <AiFillPieChart
+                    size={theme.iconSize.default}
+                  />
+                </NavLinkIcon>
+                <NavLinkText>
+                  {NAVIGATION.STATISTICS}
+                </NavLinkText>
               </StyledNavLink>
             </NavigationListItem>
           </NavigationList>
