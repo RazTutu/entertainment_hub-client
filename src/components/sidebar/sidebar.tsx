@@ -22,7 +22,14 @@ import {
   TitleSection,
 } from './styles';
 
-export const Sidebar = ({}) => {
+type SidebarProps = {
+  fullNavbarActive: boolean;
+};
+
+export const Sidebar = ({
+  fullNavbarActive,
+}: SidebarProps) => {
+  console.log('fullNavbarActive is', fullNavbarActive);
   return (
     <SidebarContainer>
       <SidebarContent>

@@ -10,6 +10,11 @@ export const SidebarContainer = styled.aside`
   background-color: ${colors.mirage};
   border-right: 1px solid ${colors.whiteLowOpacity};
   position: sticky;
+
+  @media (max-width: ${(props) =>
+      props.theme.screenSize.sm}px) {
+    display: none;
+  }
 `;
 
 export const SidebarContent = styled.div`

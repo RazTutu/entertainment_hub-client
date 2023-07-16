@@ -16,5 +16,9 @@ export const theme = {
   ],
   iconSize: {
     default: 20,
+    medium: 25,
+  },
+  screenSize: {
+    sm: 500,
   },
 };

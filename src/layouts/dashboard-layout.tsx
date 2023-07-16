@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 import {
   createGlobalStyle,
   ThemeProvider,
@@ -33,14 +33,23 @@ type DashboardLayoutProps = {
 export const DashboardLayout = ({
   children,
 }: DashboardLayoutProps) => {
+  const [fullNavbarActive, setFullNavbarActive] =
+    useState<boolean>(false);
+
+  const handleSetFullNavbar = (value: boolean): void => {
+    setFullNavbarActive(value);
+  };
+
   return (
     <Application>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <SidebarContentContainer>
-          <Sidebar />
+          <Sidebar fullNavbarActive={fullNavbarActive} />
           <Content>
-            <Navigation />
+            <Navigation
+              handleSetFullNavbar={handleSetFullNavbar}
+            />
             <ChildContent>{children}</ChildContent>
             <Footer />
           </Content>
