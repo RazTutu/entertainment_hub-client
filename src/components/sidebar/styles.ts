@@ -3,8 +3,13 @@ import styled from 'styled-components';
 
 import { colors } from '@/config/colors';
 
-export const SidebarContainer = styled.aside`
-  width: ${(props) => props.theme.space[10]};
+export const SidebarContainer = styled.aside.attrs(
+  (props: { fullSidebarActive: boolean }) => props
+)`
+  width: ${(props) =>
+    props.fullSidebarActive
+      ? '100%'
+      : props.theme.space[10]};
   min-height: 100vh;
   top: 0;
   background-color: ${colors.mirage};
@@ -13,7 +18,8 @@ export const SidebarContainer = styled.aside`
 
   @media (max-width: ${(props) =>
       props.theme.screenSize.sm}px) {
-    display: none;
+    display: ${(props) =>
+      props.fullSidebarActive ? 'block' : 'none'};
   }
 `;
 

@@ -33,11 +33,11 @@ type DashboardLayoutProps = {
 export const DashboardLayout = ({
   children,
 }: DashboardLayoutProps) => {
-  const [fullNavbarActive, setFullNavbarActive] =
+  const [fullSidebarActive, setFullSidebarActive] =
     useState<boolean>(false);
 
-  const handleSetFullNavbar = (value: boolean): void => {
-    setFullNavbarActive(value);
+  const handleSetFullSidebar = (value: boolean): void => {
+    setFullSidebarActive(value);
   };
 
   return (
@@ -45,10 +45,12 @@ export const DashboardLayout = ({
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <SidebarContentContainer>
-          <Sidebar fullNavbarActive={fullNavbarActive} />
+          <Sidebar
+            fullSidebarActive={fullSidebarActive}
+          />
           <Content>
             <Navigation
-              handleSetFullNavbar={handleSetFullNavbar}
+              handleSetFullSidebar={handleSetFullSidebar}
             />
             <ChildContent>{children}</ChildContent>
             <Footer />

@@ -8,17 +8,17 @@ import {
 } from './styles';
 
 type NavigationProps = {
-  handleSetFullNavbar: (value: boolean) => void;
+  handleSetFullSidebar: (value: boolean) => void;
 };
 
 export const Navigation = ({
-  handleSetFullNavbar,
+  handleSetFullSidebar,
 }: NavigationProps) => {
   return (
     <NavContainer>
       <MenuContainer>
         <MenuButton
-          onClick={() => handleSetFullNavbar(true)}
+          onClick={() => handleSetFullSidebar(true)}
         >
           <FiMenu size={theme.iconSize.medium}></FiMenu>
         </MenuButton>

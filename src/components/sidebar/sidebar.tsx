@@ -23,15 +23,17 @@ import {
 } from './styles';
 
 type SidebarProps = {
-  fullNavbarActive: boolean;
+  fullSidebarActive: boolean;
 };
 
 export const Sidebar = ({
-  fullNavbarActive,
+  fullSidebarActive,
 }: SidebarProps) => {
-  console.log('fullNavbarActive is', fullNavbarActive);
+  console.log('fullNavbarActive is', fullSidebarActive);
   return (
-    <SidebarContainer>
+    <SidebarContainer
+      fullSidebarActive={fullSidebarActive}
+    >
       <SidebarContent>
         <TitleSection>
           <Title>{APP_TITLE}</Title>
