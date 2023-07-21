@@ -44,11 +44,14 @@ export const DashboardLayout = ({
     <Application>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <SidebarContentContainer>
+        <SidebarContentContainer
+          fullSidebarActive={fullSidebarActive}
+        >
           <Sidebar
             fullSidebarActive={fullSidebarActive}
+            handleSetFullSidebar={handleSetFullSidebar}
           />
-          <Content>
+          <Content fullSidebarActive={fullSidebarActive}>
             <Navigation
               handleSetFullSidebar={handleSetFullSidebar}
             />

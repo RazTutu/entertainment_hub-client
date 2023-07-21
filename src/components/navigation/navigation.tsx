@@ -1,11 +1,8 @@
 import { FiMenu } from 'react-icons/fi';
 
 import { theme } from '@/config/theme';
-import {
-  MenuButton,
-  MenuContainer,
-  NavContainer,
-} from './styles';
+import { MenuContainer, NavContainer } from './styles';
+import { UnstyledButton } from '@/styles';
 
 type NavigationProps = {
   handleSetFullSidebar: (value: boolean) => void;
@@ -17,11 +14,11 @@ export const Navigation = ({
   return (
     <NavContainer>
       <MenuContainer>
-        <MenuButton
+        <UnstyledButton
           onClick={() => handleSetFullSidebar(true)}
         >
           <FiMenu size={theme.iconSize.medium}></FiMenu>
-        </MenuButton>
+        </UnstyledButton>
       </MenuContainer>
       some text on nav container
     </NavContainer>

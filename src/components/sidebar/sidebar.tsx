@@ -2,7 +2,10 @@ import { FaHome } from 'react-icons/fa';
 import { IoLogoGameControllerB } from 'react-icons/io';
 import { RiMovie2Fill } from 'react-icons/ri';
 import { FaBook } from 'react-icons/fa';
-import { AiFillPieChart } from 'react-icons/ai';
+import {
+  AiFillPieChart,
+  AiOutlineClose,
+} from 'react-icons/ai';
 
 import {
   APP_TITLE,
@@ -10,6 +13,8 @@ import {
 } from '@/config/constants';
 import { theme } from '@/config/theme';
 import {
+  CloseButtonContainer,
+  NavElementWrapper,
   NavLinkIcon,
   NavLinkText,
   NavigationList,
@@ -21,79 +26,129 @@ import {
   Title,
   TitleSection,
 } from './styles';
+import { EmptyContainer, UnstyledButton } from '@/styles';
 
 type SidebarProps = {
   fullSidebarActive: boolean;
+  handleSetFullSidebar: (value: boolean) => void;
 };
 
 export const Sidebar = ({
   fullSidebarActive,
+  handleSetFullSidebar,
 }: SidebarProps) => {
-  console.log('fullNavbarActive is', fullSidebarActive);
   return (
     <SidebarContainer
       fullSidebarActive={fullSidebarActive}
     >
       <SidebarContent>
-        <TitleSection>
-          <Title>{APP_TITLE}</Title>
+        <TitleSection
+          fullSidebarActive={fullSidebarActive}
+        >
+          <Title fullSidebarActive={fullSidebarActive}>
+            {APP_TITLE}
+          </Title>
+          {fullSidebarActive && (
+            <CloseButtonContainer
+              fullSidebarActive={fullSidebarActive}
+            >
+              <UnstyledButton
+                onClick={() =>
+                  handleSetFullSidebar(false)
+                }
+              >
+                <AiOutlineClose
+                  size={theme.iconSize.medium}
+                />
+              </UnstyledButton>
+            </CloseButtonContainer>
+          )}
         </TitleSection>
         <NavigationListContainer>
           <NavigationList>
             <NavigationListItem>
-              <StyledNavLink to="/">
-                <NavLinkIcon>
-                  <FaHome size={theme.iconSize.default} />
-                </NavLinkIcon>
-                <NavLinkText>
-                  {NAVIGATION.HOME}
-                </NavLinkText>
+              <StyledNavLink
+                to="/"
+                fullSidebarActive={fullSidebarActive}
+              >
+                <NavElementWrapper>
+                  <NavLinkIcon>
+                    <FaHome
+                      size={theme.iconSize.default}
+                    />
+                  </NavLinkIcon>
+                  <NavLinkText>
+                    {NAVIGATION.HOME}
+                  </NavLinkText>
+                </NavElementWrapper>
               </StyledNavLink>
             </NavigationListItem>
             <NavigationListItem>
-              <StyledNavLink to="/games">
-                <NavLinkIcon>
-                  <IoLogoGameControllerB
-                    size={theme.iconSize.default}
-                  />
-                </NavLinkIcon>
-                <NavLinkText>
-                  {NAVIGATION.GAMES}
-                </NavLinkText>
+              <StyledNavLink
+                to="/games"
+                fullSidebarActive={fullSidebarActive}
+              >
+                <NavElementWrapper>
+                  <NavLinkIcon>
+                    <IoLogoGameControllerB
+                      size={theme.iconSize.default}
+                    />
+                  </NavLinkIcon>
+                  <NavLinkText>
+                    {NAVIGATION.GAMES}
+                  </NavLinkText>
+                </NavElementWrapper>
               </StyledNavLink>
             </NavigationListItem>
             <NavigationListItem>
-              <StyledNavLink to="/movies">
-                <NavLinkIcon>
-                  <RiMovie2Fill
-                    size={theme.iconSize.default}
-                  />
-                </NavLinkIcon>
-                <NavLinkText>
-                  {NAVIGATION.MOVIES}
-                </NavLinkText>
+              <StyledNavLink
+                to="/movies"
+                fullSidebarActive={fullSidebarActive}
+              >
+                <NavElementWrapper>
+                  <NavLinkIcon>
+                    <RiMovie2Fill
+                      size={theme.iconSize.default}
+                    />
+                  </NavLinkIcon>
+                  <NavLinkText>
+                    {NAVIGATION.MOVIES}
+                  </NavLinkText>
+                </NavElementWrapper>
               </StyledNavLink>
             </NavigationListItem>
             <NavigationListItem>
-              <StyledNavLink to="/books">
-                <NavLinkIcon>
-                  <FaBook size={theme.iconSize.default} />
-                </NavLinkIcon>
-                <NavLinkText>
-                  {NAVIGATION.BOOKS}
-                </NavLinkText>
+              <StyledNavLink
+                to="/books"
+                fullSidebarActive={fullSidebarActive}
+              >
+                <NavElementWrapper>
+                  <NavLinkIcon>
+                    <FaBook
+                      size={theme.iconSize.default}
+                    />
+                  </NavLinkIcon>
+                  <NavLinkText>
+                    {NAVIGATION.BOOKS}
+                  </NavLinkText>
+                </NavElementWrapper>
               </StyledNavLink>
             </NavigationListItem>
             <NavigationListItem>
-              <StyledNavLink to="/statistics">
-                <NavLinkIcon>
-                  <AiFillPieChart
-                    size={theme.iconSize.default}
-                  />
-                </NavLinkIcon>
-                <NavLinkText>
-                  {NAVIGATION.STATISTICS}
-                </NavLinkText>
+              <StyledNavLink
+                to="/statistics"
+                fullSidebarActive={fullSidebarActive}
+              >
+                <NavElementWrapper>
+                  <NavLinkIcon>
+                    <AiFillPieChart
+                      size={theme.iconSize.default}
+                    />
+                  </NavLinkIcon>
+                  <NavLinkText>
+                    {NAVIGATION.STATISTICS}
+                  </NavLinkText>
+                </NavElementWrapper>
               </StyledNavLink>
             </NavigationListItem>
           </NavigationList>

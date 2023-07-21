@@ -22,11 +22,3 @@ export const MenuContainer = styled.div`
     display: none;
   }
 `;
-
-export const MenuButton = styled.button`
-  all: unset;
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
