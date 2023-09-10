@@ -101,6 +101,7 @@ export const CloseButtonContainer = styled.div.attrs(
   (props: { fullSidebarActive: boolean }) => props
 )`
   display: flex;
+  color: ${colors.white};
   align-items: center;
   margin-right: ${(props) =>
     props.fullSidebarActive ? props.theme.space[3] : '0'};

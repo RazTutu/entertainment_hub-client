@@ -4,7 +4,14 @@ module.exports = {
     es2021: true
   },
   parser: "@typescript-eslint/parser",
-  extends: ["plugin:@typescript-eslint/recommended", "plugin:storybook/recommended", "plugin:react/jsx-runtime", "prettier", "plugin:storybook/recommended"],
+  extends: [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:storybook/recommended",
+    "plugin:react/jsx-runtime",
+    "prettier",
+    "plugin:storybook/recommended",
+    "plugin:storybook/recommended"
+  ],
   rules: {
     "no-restricted-imports": ["error", {
       patterns: ["@/features/*/*"]
