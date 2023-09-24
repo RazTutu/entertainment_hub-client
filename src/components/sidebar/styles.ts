@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import { colors } from '@/config/colors';
 
 export const SidebarContainer = styled.aside.attrs(
-  (props: { fullSidebarActive: boolean }) => props
+  (props: { $fullSidebarActive: boolean }) => props
 )`
   width: ${(props) =>
-    props.fullSidebarActive
+    props.$fullSidebarActive
       ? '100%'
       : props.theme.space[10]};
   min-height: 100vh;
@@ -19,10 +19,10 @@ export const SidebarContainer = styled.aside.attrs(
   @media (max-width: ${(props) =>
       props.theme.screenSize.sm}px) {
     display: ${(props) =>
-      props.fullSidebarActive ? 'block' : 'none'};
+      props.$fullSidebarActive ? 'block' : 'none'};
   }
   overflow: ${(props) =>
-    props.fullSidebarActive ? 'hidden' : 'auto'};
+    props.$fullSidebarActive ? 'hidden' : 'auto'};
 `;
 
 export const SidebarContent = styled.div`
@@ -32,21 +32,25 @@ export const SidebarContent = styled.div`
 `;
 
 export const TitleSection = styled.div.attrs(
-  (props: { fullSidebarActive: boolean }) => props
+  (props: { $fullSidebarActive: boolean }) => props
 )`
   width: 100%;
   display: flex;
   justify-content: ${(props) =>
-    props.fullSidebarActive ? 'space-between' : 'center'};
+    props.$fullSidebarActive
+      ? 'space-between'
+      : 'center'};
 `;
 
 export const Title = styled.h4.attrs(
-  (props: { fullSidebarActive: boolean }) => props
+  (props: { $fullSidebarActive: boolean }) => props
 )`
   color: white;
   padding: ${(props) => props.theme.space[3]} 0;
   margin-left: ${(props) =>
-    props.fullSidebarActive ? props.theme.space[3] : '0'};
+    props.$fullSidebarActive
+      ? props.theme.space[3]
+      : '0'};
 `;
 
 export const NavigationListContainer = styled.nav``;
@@ -59,7 +63,7 @@ export const NavigationListItem = styled.li`
 `;
 
 export const StyledNavLink = styled(NavLink).attrs(
-  (props: { fullSidebarActive: boolean }) => props
+  (props: { $fullSidebarActive: boolean }) => props
 )`
   width: 100%;
   color: ${colors.regentGrey};
@@ -98,11 +102,13 @@ export const NavLinkIcon = styled.span`
 `;
 
 export const CloseButtonContainer = styled.div.attrs(
-  (props: { fullSidebarActive: boolean }) => props
+  (props: { $fullSidebarActive: boolean }) => props
 )`
   display: flex;
   color: ${colors.white};
   align-items: center;
   margin-right: ${(props) =>
-    props.fullSidebarActive ? props.theme.space[3] : '0'};
+    props.$fullSidebarActive
+      ? props.theme.space[3]
+      : '0'};
 `;

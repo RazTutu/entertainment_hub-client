@@ -39,18 +39,18 @@ export const Sidebar = ({
 }: SidebarProps) => {
   return (
     <SidebarContainer
-      fullSidebarActive={fullSidebarActive}
+      $fullSidebarActive={fullSidebarActive}
     >
       <SidebarContent>
         <TitleSection
-          fullSidebarActive={fullSidebarActive}
+          $fullSidebarActive={fullSidebarActive}
         >
-          <Title fullSidebarActive={fullSidebarActive}>
+          <Title $fullSidebarActive={fullSidebarActive}>
             {APP_TITLE}
           </Title>
           {fullSidebarActive && (
             <CloseButtonContainer
-              fullSidebarActive={fullSidebarActive}
+              $fullSidebarActive={fullSidebarActive}
             >
               <UnstyledButton
                 onClick={() =>
@@ -69,7 +69,7 @@ export const Sidebar = ({
             <NavigationListItem>
               <StyledNavLink
                 to="/"
-                fullSidebarActive={fullSidebarActive}
+                $fullSidebarActive={fullSidebarActive}
               >
                 <NavElementWrapper>
                   <NavLinkIcon>
@@ -86,7 +86,7 @@ export const Sidebar = ({
             <NavigationListItem>
               <StyledNavLink
                 to="/games"
-                fullSidebarActive={fullSidebarActive}
+                $fullSidebarActive={fullSidebarActive}
               >
                 <NavElementWrapper>
                   <NavLinkIcon>
@@ -103,7 +103,7 @@ export const Sidebar = ({
             <NavigationListItem>
               <StyledNavLink
                 to="/movies"
-                fullSidebarActive={fullSidebarActive}
+                $fullSidebarActive={fullSidebarActive}
               >
                 <NavElementWrapper>
                   <NavLinkIcon>
@@ -120,7 +120,7 @@ export const Sidebar = ({
             <NavigationListItem>
               <StyledNavLink
                 to="/books"
-                fullSidebarActive={fullSidebarActive}
+                $fullSidebarActive={fullSidebarActive}
               >
                 <NavElementWrapper>
                   <NavLinkIcon>
@@ -137,7 +137,7 @@ export const Sidebar = ({
             <NavigationListItem>
               <StyledNavLink
                 to="/statistics"
-                fullSidebarActive={fullSidebarActive}
+                $fullSidebarActive={fullSidebarActive}
               >
                 <NavElementWrapper>
                   <NavLinkIcon>
