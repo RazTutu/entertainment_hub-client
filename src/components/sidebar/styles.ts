@@ -4,7 +4,10 @@ import styled from 'styled-components';
 import { colors } from '@/config/colors';
 
 export const SidebarContainer = styled.aside.attrs(
-  (props: { $fullSidebarActive: boolean }) => props
+  (props: { $fullSidebarActive: boolean }) => ({
+    role: 'app-drawer',
+    ...props,
+  })
 )`
   width: ${(props) =>
     props.$fullSidebarActive

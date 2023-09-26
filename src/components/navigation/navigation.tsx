@@ -17,7 +17,10 @@ export const Navigation = ({
         <UnstyledButton
           onClick={() => handleSetFullSidebar(true)}
         >
-          <FiMenu size={theme.iconSize.medium}></FiMenu>
+          <FiMenu
+            size={theme.iconSize.medium}
+            data-testid="nav-mobile-menu-icon"
+          ></FiMenu>
         </UnstyledButton>
       </MenuContainer>
       some text on nav container
