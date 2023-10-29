@@ -38,7 +38,7 @@ export const SearchInput = styled.div`
   display: flex;
   align-items: center;
   padding: 0 ${(props) => props.theme.space[3]};
-  color: ${colors.regentGrey};
+  color: ${colors.white};
 
   &:focus-within {
     border-color: ${colors.whiteMediumOpacity};
