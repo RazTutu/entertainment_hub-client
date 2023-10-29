@@ -26,7 +26,7 @@ import {
   Title,
   TitleSection,
 } from './styles';
-import { EmptyContainer, UnstyledButton } from '@/styles';
+import { UnstyledButton } from '@/styles';
 
 type SidebarProps = {
   fullSidebarActive: boolean;

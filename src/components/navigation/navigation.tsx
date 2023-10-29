@@ -1,8 +1,18 @@
 import { FiMenu } from 'react-icons/fi';
 
 import { theme } from '@/config/theme';
-import { MenuContainer, NavContainer } from './styles';
+import {
+  EmptyContainer,
+  LoginButton,
+  MenuContainer,
+  NavContainer,
+  SearchInput,
+} from './styles';
 import { UnstyledButton } from '@/styles';
+import {
+  LOGIN,
+  NAV_INPUT_PLACEHOLDER,
+} from '@/config/constants';
 
 type NavigationProps = {
   handleSetFullSidebar: (value: boolean) => void;
@@ -11,6 +21,10 @@ type NavigationProps = {
 export const Navigation = ({
   handleSetFullSidebar,
 }: NavigationProps) => {
+  const handleLogin = () => {
+    console.log('handle login pressed');
+  };
+
   return (
     <NavContainer>
       <MenuContainer>
@@ -23,7 +37,11 @@ export const Navigation = ({
           ></FiMenu>
         </UnstyledButton>
       </MenuContainer>
-      some text on nav container
+      <EmptyContainer />
+      <SearchInput placeholder={NAV_INPUT_PLACEHOLDER} />
+      <LoginButton onClick={() => handleLogin()}>
+        {LOGIN}
+      </LoginButton>
     </NavContainer>
   );
 };

@@ -20,5 +20,6 @@ export const theme = {
   },
   screenSize: {
     sm: 500,
+    md: 700,
   },
 };

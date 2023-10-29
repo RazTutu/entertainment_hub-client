@@ -10,3 +10,7 @@ export const NAVIGATION = {
   BOOKS: 'Books',
   STATISTICS: 'Statistics',
 };
+
+export const LOGIN = 'Login';
+
+export const NAV_INPUT_PLACEHOLDER = 'Search for a game';

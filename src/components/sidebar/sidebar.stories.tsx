@@ -12,13 +12,13 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Desktop: Story = {
   args: {
     fullSidebarActive: false,
   },
 };
 
-export const Secondary: Story = {
+export const Mobile: Story = {
   args: {
     fullSidebarActive: true,
   },
