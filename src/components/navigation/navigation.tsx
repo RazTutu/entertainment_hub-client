@@ -1,11 +1,13 @@
-import { FiMenu } from 'react-icons/fi';
+import { FiMenu, FiSearch } from 'react-icons/fi';
 
 import { theme } from '@/config/theme';
 import {
   EmptyContainer,
+  InputField,
   LoginButton,
   MenuContainer,
   NavContainer,
+  SearchIcon,
   SearchInput,
 } from './styles';
 import { UnstyledButton } from '@/styles';
@@ -25,6 +27,10 @@ export const Navigation = ({
     console.log('handle login pressed');
   };
 
+  const handleSearch = () => {
+    console.log('handle search pressed');
+  };
+
   return (
     <NavContainer>
       <MenuContainer>
@@ -38,7 +44,12 @@ export const Navigation = ({
         </UnstyledButton>
       </MenuContainer>
       <EmptyContainer />
-      <SearchInput placeholder={NAV_INPUT_PLACEHOLDER} />
+      <SearchInput>
+        <InputField placeholder={NAV_INPUT_PLACEHOLDER} />
+        <SearchIcon onClick={() => handleSearch()}>
+          <FiSearch size={theme.iconSize.default} />
+        </SearchIcon>
+      </SearchInput>
       <LoginButton onClick={() => handleLogin()}>
         {LOGIN}
       </LoginButton>

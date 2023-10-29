@@ -28,24 +28,46 @@ export const MenuContainer = styled.div`
   }
 `;
 
-export const SearchInput = styled.input`
+export const SearchInput = styled.div`
+  position: relative;
   width: ${(props) => props.theme.space[12]};
   height: ${(props) => props.theme.space[5]};
   background-color: ${colors.darkGunmetal};
   border: 1px solid ${colors.whiteLowOpacity};
-  color: ${colors.regentGrey};
   border-radius: ${(props) => props.theme.space[3]};
-  text-indent: ${(props) => props.theme.space[3]};
+  display: flex;
+  align-items: center;
+  padding: 0 ${(props) => props.theme.space[3]};
+  margin-right: ${(props) => props.theme.space[5]};
+  color: ${colors.regentGrey};
 
-  &:focus {
-    outline: none;
+  &:focus-within {
     border-color: ${colors.whiteMediumOpacity};
   }
 
-  @media (max-width: ${(props) =>
-      props.theme.screenSize.md}px) {
-    width: ${(props) => props.theme.space[11]};
+  &::after {
+    content: '';
+    position: absolute;
+    right: ${(props) => props.theme.space[6]};
+    top: 0;
+    bottom: 0;
+    width: 0.8px; /* Width of the vertical line */
+    background-color: ${colors.whiteLowOpacity}; /* Color of the vertical line */
   }
+`;
+
+export const InputField = styled.input`
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: white;
+`;
+
+export const SearchIcon = styled(UnstyledButton)`
+  color: ${colors.regentGrey};
+  cursor: pointer;
+  margin-left: ${(props) => props.theme.space[3]};
 `;
 
 export const LoginButton = styled(UnstyledButton)`
