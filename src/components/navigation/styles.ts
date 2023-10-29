@@ -38,7 +38,6 @@ export const SearchInput = styled.div`
   display: flex;
   align-items: center;
   padding: 0 ${(props) => props.theme.space[3]};
-  margin-right: ${(props) => props.theme.space[5]};
   color: ${colors.regentGrey};
 
   &:focus-within {
@@ -53,6 +52,13 @@ export const SearchInput = styled.div`
     bottom: 0;
     width: 0.8px; /* Width of the vertical line */
     background-color: ${colors.whiteLowOpacity}; /* Color of the vertical line */
+  }
+
+  @media (max-width: ${(props) =>
+      props.theme.screenSize.md}px) {
+    width: ${(props) => props.theme.space[11]};
+    display: flex;
+    justify-content: center;
   }
 `;
 
