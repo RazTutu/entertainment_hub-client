@@ -1,6 +1,7 @@
 import { FiMenu, FiSearch } from 'react-icons/fi';
 
 import { theme } from '@/config/theme';
+import { useProfileStore } from '@/stores';
 import {
   EmptyContainer,
   InputField,
@@ -15,6 +16,7 @@ import {
   LOGIN,
   NAV_INPUT_PLACEHOLDER,
 } from '@/config/constants';
+import { useEffect } from 'react';
 
 type NavigationProps = {
   handleSetFullSidebar: (value: boolean) => void;
@@ -23,8 +25,20 @@ type NavigationProps = {
 export const Navigation = ({
   handleSetFullSidebar,
 }: NavigationProps) => {
+  const profileStore = useProfileStore();
+
+  useEffect(() => {
+    console.log(
+      'in navigation, profile store is',
+      profileStore
+    );
+  }, []);
+
   const handleLogin = () => {
-    console.log('handle login pressed');
+    window.open(
+      `http://localhost:4000/auth/google`,
+      '_self'
+    );
   };
 
   const handleSearch = () => {

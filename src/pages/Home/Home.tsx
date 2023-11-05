@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import { DashboardLayout } from '@/layouts/dashboard-layout';
+import { useProfileStore } from '@/stores';
+import { Profile } from '@/types/auth';
 
 const Home = () => {
+  const profileStore = useProfileStore();
+
   useEffect(() => {
     // check if user exists or navigate on /login
     // console.log(Object.keys(user).length)
@@ -14,6 +17,15 @@ const Home = () => {
       })
       .then((response) => {
         console.log(response.data);
+        if (response.data) {
+          const profileInfo: Profile = {
+            email: response.data.email,
+            username: response.data.username,
+            id: response.data._id,
+          };
+          profileStore.setProfileInfo(profileInfo);
+        }
+
         if (response.data.error) {
         }
       })
