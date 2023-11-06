@@ -86,6 +86,8 @@ export const LoginButton = styled(UnstyledButton)`
   }
 `;
 
+export const ProfileButton = styled(LoginButton)``;
+
 export const EmptyContainer = styled.div`
   @media (max-width: ${(props) =>
       props.theme.screenSize.sm}px) {

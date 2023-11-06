@@ -9,6 +9,7 @@ import {
   LoginButton,
   MenuContainer,
   NavContainer,
+  ProfileButton,
   SearchIcon,
   SearchInput,
 } from './styles';
@@ -17,6 +18,7 @@ import {
   LOGIN,
   NAV_INPUT_PLACEHOLDER,
 } from '@/config/constants';
+import { Profile } from '@/types';
 
 type NavigationProps = {
   handleSetFullSidebar: (value: boolean) => void;
@@ -25,7 +27,7 @@ type NavigationProps = {
 export const Navigation = ({
   handleSetFullSidebar,
 }: NavigationProps) => {
-  const profileInfo = useProfile();
+  const profileInfo: Profile = useProfile();
 
   useEffect(() => {
     console.log(
@@ -64,9 +66,16 @@ export const Navigation = ({
           <FiSearch size={theme.iconSize.default} />
         </SearchIcon>
       </SearchInput>
-      <LoginButton onClick={() => handleLogin()}>
-        {LOGIN}
-      </LoginButton>
+      {!profileInfo.username && (
+        <LoginButton onClick={() => handleLogin()}>
+          {LOGIN}
+        </LoginButton>
+      )}
+      {profileInfo.username && (
+        <ProfileButton>
+          {profileInfo.username}
+        </ProfileButton>
+      )}
     </NavContainer>
   );
 };
