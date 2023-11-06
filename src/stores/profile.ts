@@ -17,7 +17,7 @@ export const emptyProfile: Profile = {
   id: null,
 };
 
-export const useProfileStore = create<ProfileStore>()(
+const useProfileStore = create<ProfileStore>()(
   devtools(
     persist(
       (set) => ({
@@ -32,3 +32,16 @@ export const useProfileStore = create<ProfileStore>()(
     )
   )
 );
+
+export const useProfile = () =>
+  useProfileStore((state) => state.profileInfo);
+
+export const useEditProfile = () => {
+  const setProfileInfo = useProfileStore(
+    (state) => state.setProfileInfo
+  );
+  const editProfile = (profileData: Profile) => {
+    setProfileInfo(profileData);
+  };
+  return editProfile;
+};

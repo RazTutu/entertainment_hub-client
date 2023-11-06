@@ -2,11 +2,11 @@ import { useEffect } from 'react';
 import axios from 'axios';
 
 import { DashboardLayout } from '@/layouts/dashboard-layout';
-import { useProfileStore } from '@/stores';
+import { useEditProfile } from '@/stores';
 import { Profile } from '@/types/auth';
 
 const Home = () => {
-  const profileStore = useProfileStore();
+  const updateProfile = useEditProfile();
 
   useEffect(() => {
     // check if user exists or navigate on /login
@@ -16,14 +16,14 @@ const Home = () => {
         withCredentials: true,
       })
       .then((response) => {
-        console.log(response.data);
         if (response.data) {
           const profileInfo: Profile = {
             email: response.data.email,
             username: response.data.username,
             id: response.data._id,
           };
-          profileStore.setProfileInfo(profileInfo);
+          // profileStore.setProfileInfo(profileInfo);
+          updateProfile(profileInfo);
         }
 
         if (response.data.error) {

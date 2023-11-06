@@ -1,7 +1,8 @@
+import { useEffect } from 'react';
 import { FiMenu, FiSearch } from 'react-icons/fi';
 
 import { theme } from '@/config/theme';
-import { useProfileStore } from '@/stores';
+import { useProfile } from '@/stores';
 import {
   EmptyContainer,
   InputField,
@@ -16,7 +17,6 @@ import {
   LOGIN,
   NAV_INPUT_PLACEHOLDER,
 } from '@/config/constants';
-import { useEffect } from 'react';
 
 type NavigationProps = {
   handleSetFullSidebar: (value: boolean) => void;
@@ -25,14 +25,14 @@ type NavigationProps = {
 export const Navigation = ({
   handleSetFullSidebar,
 }: NavigationProps) => {
-  const profileStore = useProfileStore();
+  const profileInfo = useProfile();
 
   useEffect(() => {
     console.log(
-      'in navigation, profile store is',
-      profileStore
+      'in navigation, profile info is',
+      profileInfo
     );
-  }, []);
+  }, [profileInfo]);
 
   const handleLogin = () => {
     window.open(
