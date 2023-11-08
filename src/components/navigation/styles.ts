@@ -88,9 +88,21 @@ export const LoginButton = styled(UnstyledButton)`
 
 export const ProfileButton = styled(LoginButton)``;
 
+export const Avatar = styled.img`
+  width: ${(props) => props.theme.space[5]};
+  height: ${(props) => props.theme.space[5]};
+  border-radius: 50%;
+  margin-right: ${(props) => props.theme.space[2]};
+`;
+
 export const EmptyContainer = styled.div`
   @media (max-width: ${(props) =>
       props.theme.screenSize.sm}px) {
     display: none;
   }
+`;
+
+export const ProfileInfo = styled.div`
+  display: flex;
+  align-items: center;
 `;

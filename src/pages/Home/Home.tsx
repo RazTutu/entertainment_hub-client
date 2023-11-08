@@ -9,8 +9,6 @@ const Home = () => {
   const updateProfile = useEditProfile();
 
   useEffect(() => {
-    // check if user exists or navigate on /login
-    // console.log(Object.keys(user).length)
     axios
       .get(`http://localhost:4000/auth/login/success`, {
         withCredentials: true,
@@ -21,8 +19,8 @@ const Home = () => {
             email: response.data.email,
             username: response.data.username,
             id: response.data._id,
+            avatar: response.data.avatar,
           };
-          // profileStore.setProfileInfo(profileInfo);
           updateProfile(profileInfo);
         }
 

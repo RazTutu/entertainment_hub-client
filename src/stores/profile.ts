@@ -15,6 +15,7 @@ export const emptyProfile: Profile = {
   email: null,
   username: null,
   id: null,
+  avatar: null,
 };
 
 const useProfileStore = create<ProfileStore>()(
@@ -44,4 +45,14 @@ export const useEditProfile = () => {
     setProfileInfo(profileData);
   };
   return editProfile;
+};
+
+export const useClearProfile = () => {
+  const setProfileInfo = useProfileStore(
+    (state) => state.setProfileInfo
+  );
+  const clearProfile = () => {
+    return setProfileInfo(emptyProfile);
+  };
+  return clearProfile;
 };

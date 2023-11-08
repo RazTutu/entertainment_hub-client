@@ -13,4 +13,8 @@ export const NAVIGATION = {
 
 export const LOGIN = 'Login';
 
+export const LOGOUT = 'Disconnect';
+
 export const NAV_INPUT_PLACEHOLDER = 'Search for a game';
+
+export const AVATAR_DESCRIPTION = 'User avatar';
