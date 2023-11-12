@@ -4,9 +4,20 @@ import axios from 'axios';
 import { DashboardLayout } from '@/layouts/dashboard-layout';
 import { useEditProfile } from '@/stores';
 import { Profile } from '@/types/auth';
+import {
+  GetMediaOptions,
+  useMedia,
+} from '@/features/displayMedia';
+
+const gamesParam: GetMediaOptions = {
+  mediaType: 'games',
+};
 
 const Home = () => {
   const updateProfile = useEditProfile();
+  const { data, isLoading } = useMedia(gamesParam);
+
+  console.log('data is', data);
 
   useEffect(() => {
     axios

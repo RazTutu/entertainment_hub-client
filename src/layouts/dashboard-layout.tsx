@@ -4,17 +4,6 @@ import {
   ThemeProvider,
 } from 'styled-components';
 
-export const GlobalStyle = createGlobalStyle`
-  * {
-    padding: 0;
-    margin: 0;
-  }
-
-  body {
-    font-family: 'Roboto', sans-serif;
-  }
-`;
-
 import {
   ChildContent,
   Content,
@@ -25,6 +14,17 @@ import { Navigation } from '@/components/navigation';
 import { Sidebar } from '@/components/sidebar';
 import { Footer } from '@/components/footer/footer';
 import { theme } from '@/config/theme';
+
+export const GlobalStyle = createGlobalStyle`
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+  }
+`;
 
 type DashboardLayoutProps = {
   children: ReactNode;

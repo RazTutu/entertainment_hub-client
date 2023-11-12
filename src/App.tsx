@@ -1,5 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
+import { QueryClientProvider } from '@tanstack/react-query';
 
+import { queryClient } from '@/lib/react-query';
 import Home from '@/pages/home/home';
 import Games from '@/pages/games/games';
 import AuthPage from '@/pages/AuthPage';
@@ -12,17 +14,19 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/games" element={<Games />} />
-        <Route path="/movies" element={<Movies />} />
-        <Route path="/books" element={<Books />} />
-        <Route
-          path="/statistics"
-          element={<Statistics />}
-        />
-        <Route path="/auth" element={<AuthPage />} />
-      </Routes>
+      <QueryClientProvider client={queryClient}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/games" element={<Games />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/books" element={<Books />} />
+          <Route
+            path="/statistics"
+            element={<Statistics />}
+          />
+          <Route path="/auth" element={<AuthPage />} />
+        </Routes>
+      </QueryClientProvider>
     </div>
   );
 }
