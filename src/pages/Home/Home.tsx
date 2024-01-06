@@ -5,19 +5,20 @@ import { DashboardLayout } from '@/layouts/dashboard-layout';
 import { useEditProfile } from '@/stores';
 import { Profile } from '@/types/auth';
 import {
-  GetMediaOptions,
-  useMedia,
-} from '@/features/displayMedia';
+  GetEntertainmentOptions,
+  useEntertainmentPopular,
+} from '@/features/displayEntertainment';
 
-const gamesParam: GetMediaOptions = {
-  mediaType: 'games',
+const gamesParam: GetEntertainmentOptions = {
+  entertainmentType: 'games',
 };
 
 const Home = () => {
   const updateProfile = useEditProfile();
-  const { data, isLoading } = useMedia(gamesParam);
+  const { gamesData, isLoading } =
+    useEntertainmentPopular(gamesParam);
 
-  console.log('data is', data);
+  console.log('gamesList is', gamesData?.games);
 
   useEffect(() => {
     axios
