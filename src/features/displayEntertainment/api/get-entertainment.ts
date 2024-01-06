@@ -6,7 +6,7 @@ import { Games } from '@/types';
 
 export const getEntertainment = ({
   entertainmentType,
-}: GetEntertainmentOptions): Promise<any> => {
+}: GetEntertainmentOptions): Promise<Games> => {
   return apiClient.get(
     `/entertainment/${entertainmentType}/popularGames`
   );

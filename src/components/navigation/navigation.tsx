@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { FiMenu, FiSearch } from 'react-icons/fi';
 
 import { theme } from '@/config/theme';
-import { useClearProfile, useProfile } from '@/stores';
+import { useProfile } from '@/stores';
 import {
   Avatar,
   EmptyContainer,
@@ -23,7 +23,10 @@ import {
   NAV_INPUT_PLACEHOLDER,
 } from '@/config/constants';
 import { Profile } from '@/types';
-import axios from 'axios';
+import {
+  handleLogin,
+  useLogout,
+} from '@/features/authentication';
 
 type NavigationProps = {
   handleSetFullSidebar: (value: boolean) => void;
@@ -33,7 +36,15 @@ export const Navigation = ({
   handleSetFullSidebar,
 }: NavigationProps) => {
   const profileInfo: Profile = useProfile();
-  const clearProfile = useClearProfile();
+  const logout = useLogout();
+
+  const handleLogout = async () => {
+    await logout();
+  };
+
+  const handleSearch = () => {
+    console.log('handle search pressed');
+  };
 
   useEffect(() => {
     console.log(
@@ -41,34 +52,6 @@ export const Navigation = ({
       profileInfo
     );
   }, [profileInfo]);
-
-  const handleLogin = () => {
-    window.open(
-      `http://localhost:4000/auth/google`,
-      '_self'
-    );
-  };
-
-  const handleLogout = () => {
-    axios({
-      method: 'get',
-      url: 'http://localhost:4000/auth/logout',
-      withCredentials: true,
-    })
-      .then((response) => {
-        console.log(response.data);
-        clearProfile();
-        if (response.data.error) {
-        }
-      })
-      .catch((err) => {
-        console.log('can not log out');
-      });
-  };
-
-  const handleSearch = () => {
-    console.log('handle search pressed');
-  };
 
   return (
     <NavContainer>

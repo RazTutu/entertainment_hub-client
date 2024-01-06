@@ -4,7 +4,6 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from '@/lib/react-query';
 import Home from '@/pages/home/home';
 import Games from '@/pages/games/games';
-import AuthPage from '@/pages/AuthPage';
 import Movies from '@/pages/movies/movies';
 import Books from '@/pages/books/books';
 import Statistics from '@/pages/statistics/statistics';
@@ -24,7 +23,6 @@ function App() {
             path="/statistics"
             element={<Statistics />}
           />
-          <Route path="/auth" element={<AuthPage />} />
         </Routes>
       </QueryClientProvider>
     </div>
