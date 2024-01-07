@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 import { queryClient } from '@/lib/react-query';
 import Home from '@/pages/home/home';
@@ -24,6 +25,8 @@ function App() {
             element={<Statistics />}
           />
         </Routes>
+
+        <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </div>
   );
