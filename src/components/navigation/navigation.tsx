@@ -1,5 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { FiMenu, FiSearch } from 'react-icons/fi';
+import { useDebounce } from '@uidotdev/usehooks';
 
 import { theme } from '@/config/theme';
 import { useProfile } from '@/stores';
@@ -27,31 +28,47 @@ import {
   handleLogin,
   useLogout,
 } from '@/features/authentication';
+import { useEntertainmentByName } from '@/features/searchEntertainment';
+import { GetEntertainmentOptions } from '@/features/searchEntertainment';
 
 type NavigationProps = {
   handleSetFullSidebar: (value: boolean) => void;
 };
 
+const DEBOUNCED_TIME = 700;
+
 export const Navigation = ({
   handleSetFullSidebar,
 }: NavigationProps) => {
+  const [inputValue, setInputValue] = useState('');
+  const debouncedInputValue = useDebounce(
+    inputValue,
+    DEBOUNCED_TIME
+  );
+
+  const gamesParam: GetEntertainmentOptions = {
+    entertainmentType: 'games',
+    entertainmentName: debouncedInputValue,
+  };
+
   const profileInfo: Profile = useProfile();
   const logout = useLogout();
+  const { gamesData, isLoading, refetchSearchByName } =
+    useEntertainmentByName(gamesParam);
+
+  useEffect(() => {
+    if (debouncedInputValue.length > 0) {
+      refetchSearchByName();
+    }
+  }, [debouncedInputValue]);
 
   const handleLogout = async () => {
     await logout();
   };
 
   const handleSearch = () => {
-    console.log('handle search pressed');
+    refetchSearchByName();
   };
-
-  useEffect(() => {
-    console.log(
-      'in navigation, profile info is',
-      profileInfo
-    );
-  }, [profileInfo]);
 
   return (
     <NavContainer>
@@ -67,7 +84,14 @@ export const Navigation = ({
       </MenuContainer>
       <EmptyContainer />
       <SearchInput>
-        <InputField placeholder={NAV_INPUT_PLACEHOLDER} />
+        <InputField
+          type="text"
+          value={inputValue}
+          onChange={(event) =>
+            setInputValue(event.target.value)
+          }
+          placeholder={NAV_INPUT_PLACEHOLDER}
+        />
         <SearchIcon onClick={() => handleSearch()}>
           <FiSearch size={theme.iconSize.default} />
         </SearchIcon>
