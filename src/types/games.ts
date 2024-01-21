@@ -4,6 +4,7 @@ export type Game = {
   background_image: string;
   platforms: string[];
   released_date: string;
+  key: string;
 };
 
 export type Games = {

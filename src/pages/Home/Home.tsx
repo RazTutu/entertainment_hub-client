@@ -4,6 +4,13 @@ import {
   useEntertainmentPopular,
 } from '@/features/displayEntertainment';
 import { useFetchUserProfile } from '@/features/authentication';
+import { GameCard } from '@/features/displayEntertainment';
+import {
+  EntertainmentContent,
+  EntertainmentContainer,
+  EntertainmentType,
+} from './styles';
+import { Game } from '@/types';
 
 const gamesParam: GetEntertainmentOptions = {
   entertainmentType: 'games',
@@ -18,9 +25,15 @@ const Home = () => {
 
   return (
     <DashboardLayout>
-      <div className="homePage">
-        This is the home page
-      </div>
+      <EntertainmentContainer>
+        <EntertainmentType></EntertainmentType>
+        <EntertainmentContent>
+          {gamesData?.games &&
+            gamesData.games.map((game: Game) => (
+              <GameCard {...game} />
+            ))}
+        </EntertainmentContent>
+      </EntertainmentContainer>
     </DashboardLayout>
   );
 };

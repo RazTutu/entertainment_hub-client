@@ -17,7 +17,6 @@ export const useEntertainmentByName = ({
   entertainmentType,
   entertainmentName,
 }: GetEntertainmentOptions) => {
-  console.log('useEntertainmentName triggered');
   const { data, isLoading, refetch } = useQuery<Games>({
     queryKey: [
       entertainmentType,
