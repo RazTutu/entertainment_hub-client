@@ -7,10 +7,12 @@ import {
   Title,
   Info,
   ButtonsContainer,
+  SpacedButton,
 } from './styles';
 import { PLAYABLE_ON, RELEASED_ON } from './constants';
 import { shortenPlatforms } from './functions';
 import { PrimaryButton } from '@/components/buttons/primary';
+import { theme } from '@/config/theme';
 
 export const GameCard = ({
   external_api_id,
@@ -34,8 +36,15 @@ export const GameCard = ({
           {RELEASED_ON} {released_date}
         </Info>
         <ButtonsContainer>
-          <PrimaryButton text="PLAYED"></PrimaryButton>
-          <PrimaryButton text="WILL PLAY"></PrimaryButton>
+          <PrimaryButton
+            type="filled"
+            text="PLAYED"
+          ></PrimaryButton>
+          <PrimaryButton
+            type="outlined"
+            text="WILL PLAY"
+            marginTop={theme.space[2]}
+          ></PrimaryButton>
         </ButtonsContainer>
       </CardText>
     </CardContainer>

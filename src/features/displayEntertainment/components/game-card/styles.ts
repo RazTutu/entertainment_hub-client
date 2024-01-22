@@ -10,6 +10,11 @@ export const CardContainer = styled.article`
   background-color: ${colors.mirage};
   display: flex;
   border-radius: ${(props) => props.theme.space[1]};
+
+  transition: background-color 0.2s ease-in-out;
+  &:hover {
+    background-color: ${colors.darkGunmetal};
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -18,6 +23,10 @@ export const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const CardImage = styled.img`
@@ -35,6 +44,10 @@ export const CardText = styled.div`
 export const Title = styled.p`
   margin-top: ${(props) => props.theme.space[4]};
   font-size: ${(props) => props.theme.space[3]};
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const Info = styled.p`
@@ -46,6 +59,15 @@ export const Info = styled.p`
 export const ButtonsContainer = styled.div`
   margin-top: ${(props) => props.theme.space[3]};
   width: 100%;
-  height: 100;
-  border: 1px solid green;
+  height: ${(props) => props.theme.space[8]};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const SpacedButton = styled.div`
+  height: 100%;
+  width: 100%;
+  margin-top: ${(props) => props.theme.space[1]};
 `;

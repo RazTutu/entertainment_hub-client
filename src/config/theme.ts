@@ -15,8 +15,8 @@ export const theme = {
     '24rem',
   ],
   spaceContainers: {
-    defaultHeight: '12rem',
-    defaultWidth: '20rem',
+    defaultHeight: '14rem',
+    defaultWidth: '23rem',
   },
   iconSize: {
     default: 20,

@@ -20,6 +20,6 @@ export const EntertainmentContent = styled.section`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: ${(props) => props.theme.space[8]};
+  gap: ${(props) => props.theme.space[6]};
   margin-top: ${(props) => props.theme.space[5]};
 `;
