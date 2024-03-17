@@ -9,8 +9,12 @@ import Statistics from '@/pages/statistics/statistics';
 
 import Library from './pages/library/library';
 import './App.css';
+import { useDialog } from './stores';
+import { Overlay } from './components/overlay';
 
 function App() {
+  const dialog = useDialog();
+
   return (
     <div className="App">
       <QueryClientProvider client={queryClient}>
@@ -22,7 +26,7 @@ function App() {
             element={<Statistics />}
           />
         </Routes>
-
+        {dialog && <Overlay />}
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </div>
