@@ -7,10 +7,8 @@ export const APP_TITLE = 'Entertainment Hub';
 
 export const NAVIGATION = {
   HOME: 'Home',
-  GAMES: 'Games',
-  MOVIES: 'Movies',
-  BOOKS: 'Books',
   STATISTICS: 'Statistics',
+  LIBRARY: 'Library',
 };
 
 export const LOGIN = 'Login';

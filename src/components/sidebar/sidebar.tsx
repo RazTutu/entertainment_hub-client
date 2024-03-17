@@ -85,41 +85,7 @@ export const Sidebar = ({
             </NavigationListItem>
             <NavigationListItem>
               <StyledNavLink
-                to="/games"
-                $fullSidebarActive={fullSidebarActive}
-              >
-                <NavElementWrapper>
-                  <NavLinkIcon>
-                    <IoLogoGameControllerB
-                      size={theme.iconSize.default}
-                    />
-                  </NavLinkIcon>
-                  <NavLinkText>
-                    {NAVIGATION.GAMES}
-                  </NavLinkText>
-                </NavElementWrapper>
-              </StyledNavLink>
-            </NavigationListItem>
-            <NavigationListItem>
-              <StyledNavLink
-                to="/movies"
-                $fullSidebarActive={fullSidebarActive}
-              >
-                <NavElementWrapper>
-                  <NavLinkIcon>
-                    <RiMovie2Fill
-                      size={theme.iconSize.default}
-                    />
-                  </NavLinkIcon>
-                  <NavLinkText>
-                    {NAVIGATION.MOVIES}
-                  </NavLinkText>
-                </NavElementWrapper>
-              </StyledNavLink>
-            </NavigationListItem>
-            <NavigationListItem>
-              <StyledNavLink
-                to="/books"
+                to="/library"
                 $fullSidebarActive={fullSidebarActive}
               >
                 <NavElementWrapper>
@@ -129,7 +95,7 @@ export const Sidebar = ({
                     />
                   </NavLinkIcon>
                   <NavLinkText>
-                    {NAVIGATION.BOOKS}
+                    {NAVIGATION.LIBRARY}
                   </NavLinkText>
                 </NavElementWrapper>
               </StyledNavLink>
