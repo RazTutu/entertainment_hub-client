@@ -11,7 +11,9 @@ export const EntertainmentContainer = styled.div`
 export const EntertainmentType = styled.section`
   height: 2rem;
   width: 90%;
-  border: 1px solid blue;
+  display: flex;
+  gap: 1rem;
+  margin-top: ${(props) => props.theme.space[3]};
 `;
 
 export const EntertainmentContent = styled.section`
