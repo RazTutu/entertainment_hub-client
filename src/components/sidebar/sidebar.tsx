@@ -1,6 +1,4 @@
 import { FaHome } from 'react-icons/fa';
-import { IoLogoGameControllerB } from 'react-icons/io';
-import { RiMovie2Fill } from 'react-icons/ri';
 import { FaBook } from 'react-icons/fa';
 import {
   AiFillPieChart,
