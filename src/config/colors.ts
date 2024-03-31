@@ -2,6 +2,7 @@ export const colors = {
   white: '#FFFFFF',
   mirage: '#161C23',
   darkGunmetal: '#20262D',
+  lighterDarkGunmetal: '#282E35',
   cinder: '#0D1116',
   regentGrey: '#8B939C',
   bluish: '#2D83AE',
